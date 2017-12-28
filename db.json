@@ -1,14 +1,8 @@
 ﻿{
-  "users": [
+  "posts": [
     {
       "id": 1,
-      "email": "first_user@email.com",
-      "nickname": "first_user"
-    },
-    {
-      "id": 2,
-      "email": "second_user@email.com",
-      "nickname": "second_user"
+      "title": "hello"
     }
   ],
   "profile": {
