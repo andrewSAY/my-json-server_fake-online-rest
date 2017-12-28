@@ -1,0 +1,41 @@
+﻿{
+  "users": [
+    {
+      "id": 1,
+      "email": "eamail_first_user@mail.com",
+      "nickname": "first_user"
+    },
+    {
+      "id": 1,
+      "email": "eamail_second_user@mail.com",
+      "nickname": "second_user"
+    }
+  ],
+  "albums": [
+    {
+      "id": 1,
+      "name": "The Flower Album",
+      "ownerid": 2
+    },
+    {
+      "id": 1,
+      "name": "The Wild Album",
+      "ownerid": 1
+    },
+    {
+      "id": 1,
+      "name": "The Tree Album",
+      "ownerid": 2
+    },
+    {
+      "id": 1,
+      "name": "The Cat Album",
+      "ownerid": 1
+    },
+    {
+      "id": 1,
+      "name": "The Dog Album",
+      "ownerid": 1
+    }
+  ]  
+}
