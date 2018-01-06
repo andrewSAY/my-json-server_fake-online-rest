@@ -7,6 +7,6 @@ namespace TestTaskWevService.Models.ApiModels
 {
     public class UserAlbumApi: UserApi
     {
-        IEnumerable<AlbumApi> Albums;
+        public IEnumerable<AlbumApi> Albums;
     }
 }

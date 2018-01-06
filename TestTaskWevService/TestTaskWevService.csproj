@@ -89,7 +89,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IDataProvider.cs" />
+    <Compile Include="Interfaces\IMainService.cs" />
+    <Compile Include="Models\ApiModels\AlbumApi.cs" />
+    <Compile Include="Models\ApiModels\UserAlbumApi.cs" />
+    <Compile Include="Models\ApiModels\UserApi.cs" />
+    <Compile Include="Models\Entities\Album.cs" />
+    <Compile Include="Models\Entities\Entity.cs" />
+    <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MainService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -103,7 +112,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

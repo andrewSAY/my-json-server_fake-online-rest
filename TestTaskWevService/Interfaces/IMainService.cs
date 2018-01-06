@@ -15,28 +15,28 @@ namespace TestTaskWevService.Interfaces
         /// <summary>
         /// Возвращает список всех пользователей c зашифрованным email
         /// </summary>
-        /// <param name="publicRsaKey">Открытая часть ключа широфания RSA</param>
+        /// <param name="publicRsaBase64Key">Открытая часть ключа широфания RSA(xml), конвертированная в bse64</param>
         /// <returns></returns>
-        Task<IEnumerable<UserApi>> GetAllUsersAsync(string publicRsaKey);
+        Task<IEnumerable<UserApi>> GetAllUsersAsync(string publicRsaBase64Key);
         /// <summary>
         /// Возвращает данные пользователя по его идентификатору
         /// </summary>
         /// <param name="userId">Идентификатор пользователя</param>
-        /// <param name="publicRsaKey">Открытая часть ключа широфания RSA</param>
+        /// <param name="publicRsaBase64Key">Открытая часть ключа широфания RSA(xml), конвертированная в bse64, конвертированная в bse64</param>
         /// <returns></returns>
-        Task<UserApi> GetUserByIdAsync(int userId, string publicRsaKey);
+        Task<UserApi> GetUserByIdAsync(int userId, string publicRsaBase64Key);
         /// <summary>
         /// Возвращает список всех альбомов
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<AlbumApi>> GetAllAlbums();
+        Task<IEnumerable<AlbumApi>> GetAllAlbumsAsync();
         /// <summary>
         /// Возвращает список всех альбомов одного пользователя c зашифрованным email
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="publicRsaKey">Открытая часть ключа широфания RSA</param>
+        /// <param name="publicRsaBase64Key">Открытая часть ключа широфания RSA(xml), конвертированная в bse64</param>
         /// <returns></returns>
-        Task<IEnumerable<UserAlbumApi>> GetAllAlbumsForUserAsync(int userId, string publicRsaKey);
+        Task<UserAlbumApi> GetAllAlbumsForUserAsync(int userId, string publicRsaBase64Key);
         /// <summary>
         /// Возвращает иалюбом по его идентификатору
         /// </summary>
