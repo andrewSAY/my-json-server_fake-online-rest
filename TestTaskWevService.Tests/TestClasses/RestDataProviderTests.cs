@@ -17,20 +17,23 @@ namespace TestTaskWevService.Tests.TestClasses
         }
         #endregion
         [Test]
-        public void GetAlbumsAsync_WhereIdEquals7_ReturnsAlbumWithId7()
+        [TestCase(15)]
+        [TestCase(7)]
+        public void GetAlbumsAsync_WhereIdEqualsExcepted_ReturnsAlbumWithTheSameId(int albumId)
         {
             var provider = GetProviderUnderTests();
-            var album = provider.GetAlbumsAsync(a => a.Id == 7).Result.FirstOrDefault();
+            var album = provider.GetAlbumsAsync(a => a.Id == albumId).Result.FirstOrDefault();
 
-            Assert.AreEqual(7, album.Id);
+            Assert.AreEqual(albumId, album.Id);
         }
-        [Test]
-        public void GetAlbumsAsync_WhereUserUserIdEquals7_Returns10Albums()
+        [Test]        
+        [TestCase(7, 10)]
+        public void GetAlbumsAsync_WhereUserUserIdEqualsExcepted_ReturnsExceptedAlbumsCount(int exceptedAlbumId, int exceptedAlbumsCount)
         {
             var provider = GetProviderUnderTests();
-            var albums = provider.GetAlbumsAsync(a => a.UserId == 7).Result;
+            var albums = provider.GetAlbumsAsync(a => a.UserId == exceptedAlbumId).Result;
 
-            Assert.AreEqual(10, albums.Count());
+            Assert.AreEqual(exceptedAlbumsCount, albums.Count());
         }
         [Test]
         public void GetAlbumsAsync_WhereTrue_Returns100Albums()
@@ -41,12 +44,13 @@ namespace TestTaskWevService.Tests.TestClasses
             Assert.AreEqual(100, albums.Count());
         }
         [Test]
-        public void GetUsersAsync_WhereIdEquals5_ReturnsUserWihtId5()
+        [TestCase(5)]
+        public void GetUsersAsync_WhereIdEqualsExcepted_ReturnsUserWihtTheSameId(int userId)
         {
             var provider = GetProviderUnderTests();
-            var user = provider.GetUsersAsync(a => a.Id == 5).Result.FirstOrDefault();
+            var user = provider.GetUsersAsync(a => a.Id == userId).Result.FirstOrDefault();
 
-            Assert.AreEqual(5, user.Id);
+            Assert.AreEqual(userId, user.Id);
         }
         [Test]
         public void GetUsersAsync_WhereTrue_Returns10Users()

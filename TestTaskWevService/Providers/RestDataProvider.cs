@@ -50,15 +50,25 @@ namespace TestTaskWevService.Providers
         private string GetUrlFromEqualExpression(string entityName, Expression body)
         {
             var binaryBody = body as BinaryExpression;
-            var left = binaryBody.Left as MemberExpression;
-            var right = binaryBody.Right as ConstantExpression;
-            var searchFieldName = ToCamelCase(left.Member.Name);
-            var searchFieldValue = right.Value;
+            var left = binaryBody.Left as MemberExpression;            
+            var searchFieldName = ToCamelCase(left.Member.Name);            
+            var searchFieldValue = GetValue(binaryBody.Right as MemberExpression); ;
             var rightEntityName = $"{ToCamelCase(entityName)}s";
 
             var url = $"{RestUrl}/{rightEntityName}?{searchFieldName}={searchFieldValue}";
 
             return url;
+        }
+        private object GetValue(MemberExpression expression)
+        {
+            var constantExpression = expression.Expression as ConstantExpression;
+            if (constantExpression == null)
+                GetValue(expression.Expression as MemberExpression);
+            var value = constantExpression.Value;            
+            return value
+                    .GetType()
+                    .GetField(expression.Member.Name)
+                    .GetValue(constantExpression.Value);
         }
         private string GetUrlFromConstantExpression(string entityName, Expression body)
         {

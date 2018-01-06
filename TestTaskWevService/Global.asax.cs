@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using TestTaskWevService.DI;
 
 namespace TestTaskWevService
 {
@@ -11,6 +12,7 @@ namespace TestTaskWevService
     {
         protected void Application_Start()
         {
+            DependencyResolver.GetInstance();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

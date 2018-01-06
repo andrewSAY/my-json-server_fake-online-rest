@@ -69,15 +69,16 @@ namespace TestTaskWevService.Tests.TestClasses
             Assert.AreEqual(expectedUsersCount, users.Count());
         }
         [Test]
-        public void GetUserByIdAsync_Always_ReturnedUserHasExpectedUserName()
+        [TestCase(1, "firstuser")]
+        [TestCase(2, "seconduser")]
+        public void GetUserByIdAsync_Always_ReturnedUserHasExpectedUserName(int userId, string expectedUsername)
         {
             var dataProvider = GetDataProvider();
             var service = GetServiceUnderTests(dataProvider);
 
-            var user = service.GetUserByIdAsync(2, PUBLIC_RSA_KEY_BASE64).Result;
-            var expectedUsersname = "seconduser";
+            var user = service.GetUserByIdAsync(userId, PUBLIC_RSA_KEY_BASE64).Result;            
 
-            Assert.AreEqual(expectedUsersname, user.UserName);
+            Assert.AreEqual(expectedUsername, user.UserName);
         }
         [Test]
         public void GetUserByIdAsync_WithoutDecryptingEmail_ReturnedUserHasEmailNotEqualExpectedOne()
