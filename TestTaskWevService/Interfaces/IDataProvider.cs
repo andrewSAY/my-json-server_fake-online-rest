@@ -14,12 +14,12 @@ namespace TestTaskWevService.Interfaces
         /// </summary>
         /// <param name="condition">Выраженеи, содержащее делегат, содержащий условие отбора</param>
         /// <returns>Список пользователей</returns>
-        IEnumerable<User> GetUsers(Expression<Func<User, bool>> condition);
+       Task<IEnumerable<User>> GetUsersAsync(Expression<Func<User, bool>> condition);
         /// <summary>
         /// Возвращаеи все альбомы, соответсвующих условию
         /// </summary>
         /// <param name="condition">Выраженеи, содержащее делегат, содержащий условие отбора</param>
         /// <returns></returns>
-        IEnumerable<Album> GetAlbums(Expression<Func<Album, bool>> condition);
+        Task<IEnumerable<Album>> GetAlbumsAsync(Expression<Func<Album, bool>> condition);
     }
 }

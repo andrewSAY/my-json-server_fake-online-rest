@@ -17,31 +17,31 @@ namespace TestTaskWevService.Interfaces
         /// </summary>
         /// <param name="publicRsaKey">Открытая часть ключа широфания RSA</param>
         /// <returns></returns>
-        IEnumerable<UserApi> GetAllUsers(string publicRsaKey);
+        Task<IEnumerable<UserApi>> GetAllUsersAsync(string publicRsaKey);
         /// <summary>
         /// Возвращает данные пользователя по его идентификатору
         /// </summary>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <param name="publicRsaKey">Открытая часть ключа широфания RSA</param>
         /// <returns></returns>
-        UserApi GetUserById(int userId, string publicRsaKey);
+        Task<UserApi> GetUserByIdAsync(int userId, string publicRsaKey);
         /// <summary>
         /// Возвращает список всех альбомов
         /// </summary>
         /// <returns></returns>
-        IEnumerable<AlbumApi> GetAllAlbums();
+        Task<IEnumerable<AlbumApi>> GetAllAlbums();
         /// <summary>
         /// Возвращает список всех альбомов одного пользователя c зашифрованным email
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="publicRsaKey">Открытая часть ключа широфания RSA</param>
         /// <returns></returns>
-        IEnumerable<UserAlbumApi> GetAllAlbumsForUser(int userId, string publicRsaKey);
+        Task<IEnumerable<UserAlbumApi>> GetAllAlbumsForUserAsync(int userId, string publicRsaKey);
         /// <summary>
         /// Возвращает иалюбом по его идентификатору
         /// </summary>
         /// <param name="albumId">Идентификатор альбома</param>
         /// <returns></returns>
-        AlbumApi GetAlbumById(int albumId);
+        Task<AlbumApi> GetAlbumByIdAsync(int albumId);
     }
 }
